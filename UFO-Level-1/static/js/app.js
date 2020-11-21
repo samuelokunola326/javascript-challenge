@@ -24,19 +24,19 @@ tableData.forEach((ufoData) => {
     });
 });
 
-
+// selecting the filter button and date time filter form
 var ft = d3.select("#filter-btn");
-
-var form = d3.select("#datetime");
+var form = d3.select("form");
 
 
 // create an event handler for clicking the filter table button or presing enter key
 ft.on("click", runEnter);
 Form.on("click", runEnter);
 
-
+// completing the eventhandler function 
 function runEnter() {
 
+    // prevent default page from loading
     d3.event.preventDefault();
 
 
