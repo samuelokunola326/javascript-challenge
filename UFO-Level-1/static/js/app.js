@@ -23,3 +23,25 @@ tableData.forEach((ufoData) => {
         cell.text(value);
     });
 });
+
+
+var ft = d3.select("#filter-btn");
+
+var form = d3.select("#datetime");
+
+
+// create an event handler for clicking the filter table button or presing enter key
+ft.on("click", runEnter);
+Form.on("click", runEnter);
+
+
+function runEnter() {
+
+    d3.event.preventDefault();
+
+
+}
+
+
+
+
