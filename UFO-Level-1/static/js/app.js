@@ -39,6 +39,15 @@ function runEnter() {
     // prevent default page from loading
     d3.event.preventDefault();
 
+    // select the input element and get the HTML 
+    var inputElement = d3.select("#datetime");
+
+    // geting the value of input element 
+    var inputValue = inputElement.property("value");
+
+    // filter data by datetime based on user input 
+    var filteredData = tableData.filter(uDate => uDate.datetime === inputValue)
+
 
 }
 
