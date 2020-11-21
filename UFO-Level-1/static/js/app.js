@@ -31,7 +31,7 @@ var form = d3.select("form");
 
 // create an event handler for clicking the filter table button or presing enter key
 ft.on("click", runEnter);
-Form.on("click", runEnter);
+form.on("submit",runEnter);
 
 // completing the eventhandler function 
 function runEnter() {
@@ -45,11 +45,20 @@ function runEnter() {
     // geting the value of input element 
     var inputValue = inputElement.property("value");
 
+    console.log(inputValue);
+
     // filter data by datetime based on user input 
-    var filteredData = tableData.filter(uDate => uDate.datetime === inputValue)
+    var filteredData = tableData.filter(uDate => uDate.datetime === inputValue);
+
+    console.log(filteredData);
+
+    
 
 
-}
+
+
+
+};
 
 
 
