@@ -48,6 +48,7 @@ function runEnter() {
     // prevent default page from loading
     d3.event.preventDefault();
 
+    // refernce table body
     tbody.html("")
 
     // select the input element and get the HTML 
@@ -55,10 +56,11 @@ function runEnter() {
 
     // geting the value of input element 
     var inputValue = inputElement.property("value");
-
+    
+    // displaying value entered for date form
     console.log(inputValue);
 
-
+    // using if function to check the date input value and filtering by that date if a value exist if not displaying all data 
     if (inputValue) {
         var t = tableData.filter(uDate => uDate.datetime === inputValue);
         console.log(t)
