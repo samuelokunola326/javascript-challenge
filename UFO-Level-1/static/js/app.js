@@ -9,25 +9,38 @@ var tbody = d3.select("tbody");
 // console.log the ufo data 
 console.log(tableData);
 
-// looping through the table data
-tableData.forEach((ufoData) => {
-    // using d3 to append a tr element for each Object in the Array of objects 
-    var row = tbody.append("tr");
+// creating a function to loop through the table data
+function tableLoop(ufoData){
     
-    // then using the objects.entries to console log the objects 
-    Object.entries(ufoData).forEach(([key, value]) => {
-        console.log(key, value);
+    tableData.forEach((ufoData) => {
+        // using d3 to append a tr element for each Object in the Array of objects 
+        var row = tbody.append("tr");
         
-        //append the values to each row and input into cells
-        var cell = row.append("td");
-        cell.text(value);
+        // then using the objects.entries to console log the objects 
+        Object.entries(ufoData).forEach(([key, value]) => {
+            console.log(key, value);
+            
+            //append the values to each row and input into cells
+            var cell = row.append("td");
+            cell.text(value); 
+        });
     });
-});
+
+}
+
+tableLoop(tableData)
+
 
 // selecting the filter button and date time filter form
 var ft = d3.select("#filter-btn");
 var form = d3.select("form");
 
+
+ // filter data by datetime based on user input 
+ function filterfunc(inputValue) {
+    var filteredData = tableData.filter(uDate => uDate.datetime === inputValue);
+    console.log(filteredData);
+}
 
 // create an event handler for clicking the filter table button or presing enter key
 ft.on("click", runEnter);
@@ -48,9 +61,11 @@ function runEnter() {
     console.log(inputValue);
 
     // filter data by datetime based on user input 
-    var filteredData = tableData.filter(uDate => uDate.datetime === inputValue);
-
-    console.log(filteredData);
+    function filterfunc(inputValue) {
+        var filteredData = tableData.filter(uDate => uDate.datetime === inputValue);
+        console.log(filteredData);
+    }
+    
 
     
       
