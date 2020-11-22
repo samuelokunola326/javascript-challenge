@@ -52,13 +52,34 @@ function runEnter() {
 
     console.log(filteredData);
 
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("#datetime");
+        // filter = input.value.toUpperCase();
+        table = document.getElementById("#ufo-table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+        //   if (td) {
+        //     txtValue = td.textContent || td.innerText;
+            if (td === inputValue) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        // }
+      }
+    
+}
+
     
 
 
 
 
 
-};
+
 
 
 
