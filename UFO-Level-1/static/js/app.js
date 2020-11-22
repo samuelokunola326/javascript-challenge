@@ -3,8 +3,6 @@ var tableData = data;
 
 // YOUR CODE HERE!
 
-// import $ from jquery
-
 // refernce table body 
 var tbody = d3.select("tbody");
 
@@ -33,27 +31,24 @@ function tableLoop(x){
 // Creating table for initial view of ufo data 
 tableLoop(tableData);
 
-// creating function that will clear table rows
-function clearRow() {
-$ ("#ufo-table tbody tr").remove();
-}
-
 // selecting the filter button and date time filter form to be used as event handlers
-var ft = d3.select("#filter-btn");
-var form = d3.select("form");
+var ft = d3.selectAll("#filter-btn");
+var form = d3.selectAll("form");
 
 
  // creating a function that will filter data by datetime based on user input 
- function filterfunc(x) {
-    var filteredData = tableData.filter(uDate => uDate.datetime === x);
-    console.log(filteredData);
-}
+//  function filterfunc(x) {
+//     var filteredData = tableData.filter(uDate => uDate.datetime === x);
+//     console.log(filteredData);
+// }
 
 // completing the eventhandler function 
 function runEnter() {
 
     // prevent default page from loading
     d3.event.preventDefault();
+
+    tbody.html("")
 
     // select the input element and get the HTML 
     var inputElement = d3.select("#datetime");
@@ -63,19 +58,12 @@ function runEnter() {
 
     console.log(inputValue);
 
-    // filter data by datetime based on user input 
-    // t = filterfunc(inputValue);
 
-    // tableLoop(t);
-
-    function fd() {
-        var $rowsNo = $('#ufo-table tbody tr').filter(function () {
-            return $.trim($(this).find('td').eq(0).value()) === inputValue
-        }).toggle();
-    };
-
-
-
+    if (inputValue) {
+        var t = tableData.filter(uDate => uDate.datetime === inputValue);
+        console.log(t)
+        tableLoop(t)
+    } else {tableLoop(tableData)}
 
 
      
@@ -84,9 +72,6 @@ function runEnter() {
 // create an event handler for clicking the filter table button or presing enter key
 ft.on("click", runEnter);
 form.on("submit",runEnter);
-
-
-
 
 
 
